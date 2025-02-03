@@ -18,5 +18,10 @@ public class GameFrame extends JFrame{
 
         // Make the window visible
         this.setVisible(true);
+
+        // Add GamePanel to the frame
+        this.add(new GamePanel());
+
+        this.pack();    // Adjust the window to fit the panel (Game Panel)
     }
 }
