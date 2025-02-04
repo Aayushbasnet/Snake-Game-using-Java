@@ -13,15 +13,16 @@ public class GameFrame extends JFrame{
         // Set the size of the game window
         this.setSize(600, 600);
 
+        // Add GamePanel to the frame
+        this.add(new GamePanel());
+        this.pack();    // Adjust the window to fit the panel (Game Panel)
+
         // Center the window on the screen
         this.setLocationRelativeTo(null);
 
         // Make the window visible
         this.setVisible(true);
 
-        // Add GamePanel to the frame
-        this.add(new GamePanel());
 
-        this.pack();    // Adjust the window to fit the panel (Game Panel)
     }
 }
