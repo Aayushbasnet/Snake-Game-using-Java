@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.awt.*;
 
 public class Snake {
-    private final int UNIT_SIZE = 20;   // Size of each body part
+    private final int UNIT_SIZE = 25;   // Size of each body part
     private ArrayList<Point> snake_body;    // List of body parts (body + tail)
     private char direction; // Direction: 'U' = Up, 'D' = Down, 'L' = Left, 'R' = Right
 
@@ -25,7 +25,9 @@ public class Snake {
         }
 
         snake_body.add(0, new_head);    // Add new head to the first
+        System.out.println("After New head added" + snake_body);
         snake_body.remove(snake_body.size()-1); // Remove the last tail segment
+        System.out.println("After tail is removed" + snake_body);
     }
 
     // Grow the snake by adding a new body segment
