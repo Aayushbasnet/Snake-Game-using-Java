@@ -14,10 +14,7 @@ public class Food {
     // Generate a new food position
     public void spawnFood(int food_width, int food_height){
         food_x = random.nextInt((int)(food_width/UNIT_SIZE))*UNIT_SIZE;
-        System.out.println("foodX:" + food_x);
         food_y = random.nextInt((int)(food_height/UNIT_SIZE))*UNIT_SIZE;
-        System.out.println("foodY:" + food_y);
-
     }
 
     // Draw the food on the screen

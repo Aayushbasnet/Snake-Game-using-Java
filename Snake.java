@@ -25,9 +25,7 @@ public class Snake {
         }
 
         snake_body.add(0, new_head);    // Add new head to the first
-        System.out.println("After New head added" + snake_body);
         snake_body.remove(snake_body.size()-1); // Remove the last tail segment
-        System.out.println("After tail is removed" + snake_body);
     }
 
     // Grow the snake by adding a new body segment
@@ -41,17 +39,17 @@ public class Snake {
 
         // Check if the snake bites itself
         for(int i = 1; i < snake_body.size(); i++){
-           if(snake_head.equals(snake_body.get(i))){
-               return true;
+           if(snake_head.equals(snake_body.get(i))){    // Head touches any part of the body
+               return true; // Collision detected!
            }
         }
 
         // Check if the snake hits the wall
         if(snake_head.x < 0 || snake_head.x >= PANEL_WIDTH/UNIT_SIZE || snake_head.y < 0 || snake_head.y >= PANEL_HEIGHT/UNIT_SIZE){
-            return true;
+            return true;    // Collision detected!
         }
 
-        return false;
+        return false;   // No collision
     }
 
     // Change the direction based on user input
@@ -67,10 +65,18 @@ public class Snake {
 
     // Draw the snake on the game panel
     public void drawSnake(Graphics g){
-//        Point snake_head = snake_body.get(0);
-        g.setColor(Color.BLUE);
-        for(Point snake_body_point : snake_body){
-            g.fillRect(snake_body_point.x*UNIT_SIZE, snake_body_point.y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+        for(int i =0; i < snake_body.size(); i++){
+            if(i==0){
+                // Head color
+                g.setColor(Color.GREEN);
+            }
+            else{
+                // Body color
+                g.setColor(new Color(45, 180, 0));
+            }
+
+            Point snake_body_part = snake_body.get(i);
+            g.fillRect(snake_body_part.x*UNIT_SIZE, snake_body_part.y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
         }
     }
 
